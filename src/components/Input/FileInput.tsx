@@ -70,7 +70,7 @@ const FileInputBase: ForwardRefRenderFunction<
 
   const handleImageUpload = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
-      if (!event.target.files?.length) {
+      if (!event.target.files?.length || error) {
         return;
       }
 
@@ -80,7 +80,7 @@ const FileInputBase: ForwardRefRenderFunction<
       setIsSending(true);
 
       await onChange(event);
-      trigger('image');
+      await trigger('image');
 
       const formData = new FormData();
 
