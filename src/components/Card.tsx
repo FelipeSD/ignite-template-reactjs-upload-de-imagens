@@ -35,6 +35,7 @@ export function Card({ data, viewImage }: CardProps): JSX.Element {
           borderTopRadius="md"
           onClick={() => viewImage(data.url)}
           onLoad={() => setIsLoading(false)}
+          onError={() => setIsLoading(false)}
           cursor="pointer"
         />
       </Skeleton>
